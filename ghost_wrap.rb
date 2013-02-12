@@ -1,6 +1,8 @@
+require 'tempfile'
+
 # must call clean if you use, see spec
 class GhostWrap
-  TEMPDIR = '/tmp'
+  TEMPDIR = Pathname.new('.')
   attr_reader :file
 
   def initialize(pdf_data)

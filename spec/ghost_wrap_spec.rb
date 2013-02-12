@@ -1,8 +1,8 @@
-require 'spec_helper'
+require_relative '../ghost_wrap'
 
-describe GhostWrap do
-  let!(:pdf_data) { joined_pdf_data = File.read(Rails.root.join('spec/fixtures/Test001.pdf')) }
-  let!(:joined_pdf_data) { File.read(Rails.root.join('spec/fixtures/JoinTest.pdf')) }
+describe 'GhostWrap' do
+  let!(:pdf_data) { File.read(File.join(File.expand_path(File.dirname(__FILE__)), 'fixtures/Test001.pdf')) }
+  let!(:joined_pdf_data) { File.read(File.join(File.expand_path(File.dirname(__FILE__)), 'fixtures/JoinTest.pdf')) }
 
   let(:ghost_wrap) { GhostWrap.new(pdf_data) }
   let(:another_ghost_wrap) { GhostWrap.new(pdf_data) }
